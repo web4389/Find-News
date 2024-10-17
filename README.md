@@ -1,6 +1,6 @@
 # Find News
 
-This is a News App in which i get news from https://newsapi.org/ API and then i display that news with my graphic designing skill through Reactjs and Tailwind css
+This is a News App in which i get news from my own data and then i display that news with my graphic designing skill through Reactjs and Tailwind css
 
 # What i Learned
 

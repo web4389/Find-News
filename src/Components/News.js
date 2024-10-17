@@ -7,9 +7,10 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useDarkMode } from "./DarkModeContext";
 
 const News = (props) => {
+  const { data } = props;
   const [articles, setarticles] = useState([]);
   const [loading, setloading] = useState(true);
-  const [page, setpage] = useState(1);
+  const [pageSize, setpageSize] = useState(15);
   const [parData, setparData] = useState(0);
 
   const capi = (s) => {
@@ -17,34 +18,28 @@ const News = (props) => {
   };
 
   const updateNews = async () => {
-    props.setprogress(60);
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${page}&pageSize=${props.pageSize}`;
+    props.setprogress(50);
     setloading(true);
-    let data = await fetch(url);
     props.setprogress(70);
-    let parsedData = await data.json();
+    setparData(data.totalResults);
     props.setprogress(80);
-    setparData(parsedData.totalResults);
-    setarticles(parsedData.articles);
+    const PaginatedArticles = data.articles.slice(0, pageSize);
+    setarticles(PaginatedArticles);
     setloading(false);
     props.setprogress(100);
   };
+
   useEffect(() => {
     document.title = `${capi(props.category)} - Find News`;
     updateNews();
   }, []);
 
   const fetchMoreData = async () => {
-    const url = `https://newsapi.org/v2/top-headlines?country=${
-      props.country
-    }&category=${props.category}&apiKey=${props.apikey}&page=${
-      page + 1
-    }&pageSize=${props.pageSize}`;
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    setpage(page + 1);
-    setarticles(articles.concat(parsedData.articles));
+    const PaginatedArticles = data.articles.slice(0, pageSize + 15);
+    setarticles(PaginatedArticles);
+    setpageSize(pageSize + 15);
   };
+
   const { Colors } = props;
   const { darkMode } = useDarkMode();
 
@@ -74,7 +69,7 @@ const News = (props) => {
       transition: {
         duration: 0.7,
         ease: [0.6, -0.05, 0.01, 0.99],
-        delay: 0.8,
+        delay: 0.5,
       },
     },
   };
@@ -97,12 +92,12 @@ const News = (props) => {
         >
           Read News - Top {capi(props.category)} HeadLines
         </motion.h1>
-        {loading && <CardsSkeleton Colors={Colors} />}
+        {loading && <CardsSkeleton />}
         <InfiniteScroll
           dataLength={articles.length}
           next={fetchMoreData}
           hasMore={articles.length !== parData}
-          loader={<CardsSkeleton Colors={Colors} />}
+          loader={<CardsSkeleton />}
         >
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 place-items-center content-center">

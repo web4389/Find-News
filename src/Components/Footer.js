@@ -3,7 +3,6 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useDarkMode } from "./DarkModeContext";
 import { motion } from "framer-motion";
 import Logo from "../Images/Logo.png";
-import LogoDark from "../Images/LogoDark.png";
 
 const Footer = ({ Colors }) => {
   const { darkMode } = useDarkMode();
@@ -23,11 +22,7 @@ const Footer = ({ Colors }) => {
               ease: [0.6, -0.05, 0.01, 0.99],
             }}
           >
-            {darkMode ? (
-              <img src={LogoDark} alt="Logo" className="w-[53px]" />
-            ) : (
-              <img src={Logo} alt="Logo" className="w-[53px]" />
-            )}
+            <img src={Logo} alt="Logo" className="w-[75px]" />
           </motion.p>
 
           <motion.ul

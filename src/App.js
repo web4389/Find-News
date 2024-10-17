@@ -7,12 +7,10 @@ import { useDarkMode } from "./Components/DarkModeContext";
 import HeroSection from "./Components/HeroSection";
 import Footer from "./Components/Footer";
 import { AnimatePresence } from "framer-motion";
+import NewsData from "./Components/Data";
 
 const App = () => {
-  const pagesize = 15;
   const [progress, setprogress] = useState(0);
-  const apikey = process.env.REACT_APP_NEWS_API;
-
   const { darkMode } = useDarkMode();
   const location = useLocation();
 
@@ -57,11 +55,8 @@ const App = () => {
             element={
               <News
                 setprogress={setprogress}
-                apikey={apikey}
-                key="general"
-                pageSize={pagesize}
-                country={"us"}
-                category={"general"}
+                data={NewsData.general}
+                category="General"
                 Colors={darkMode ? ColorsDarkMode : ColorsWhiteMode}
               />
             }
@@ -71,11 +66,8 @@ const App = () => {
             element={
               <News
                 setprogress={setprogress}
-                apikey={apikey}
-                key="general"
-                pageSize={pagesize}
-                country={"us"}
-                category={"general"}
+                data={NewsData.general}
+                category="General"
                 Colors={darkMode ? ColorsDarkMode : ColorsWhiteMode}
               />
             }
@@ -85,11 +77,8 @@ const App = () => {
             element={
               <News
                 setprogress={setprogress}
-                apikey={apikey}
-                key="business"
-                pageSize={pagesize}
-                country={"us"}
-                category={"business"}
+                category="Business"
+                data={NewsData.business}
                 Colors={darkMode ? ColorsDarkMode : ColorsWhiteMode}
               />
             }
@@ -99,11 +88,8 @@ const App = () => {
             element={
               <News
                 setprogress={setprogress}
-                apikey={apikey}
-                key="entertainment"
-                pageSize={pagesize}
-                country={"us"}
-                category={"entertainment"}
+                category="Entertainment"
+                data={NewsData.entertainment}
                 Colors={darkMode ? ColorsDarkMode : ColorsWhiteMode}
               />
             }
@@ -113,11 +99,8 @@ const App = () => {
             element={
               <News
                 setprogress={setprogress}
-                apikey={apikey}
-                key="health"
-                pageSize={pagesize}
-                country={"us"}
-                category={"health"}
+                data={NewsData.health}
+                category="Health"
                 Colors={darkMode ? ColorsDarkMode : ColorsWhiteMode}
               />
             }
@@ -127,11 +110,8 @@ const App = () => {
             element={
               <News
                 setprogress={setprogress}
-                apikey={apikey}
-                key="science"
-                pageSize={pagesize}
-                country={"us"}
-                category={"science"}
+                data={NewsData.science}
+                category="Science"
                 Colors={darkMode ? ColorsDarkMode : ColorsWhiteMode}
               />
             }
@@ -141,11 +121,8 @@ const App = () => {
             element={
               <News
                 setprogress={setprogress}
-                apikey={apikey}
-                key="sports"
-                pageSize={pagesize}
-                country={"us"}
-                category={"sports"}
+                data={NewsData.sports}
+                category="Sports"
                 Colors={darkMode ? ColorsDarkMode : ColorsWhiteMode}
               />
             }
@@ -155,11 +132,8 @@ const App = () => {
             element={
               <News
                 setprogress={setprogress}
-                apikey={apikey}
-                key="technology"
-                pageSize={pagesize}
-                country={"us"}
-                category={"technology"}
+                data={NewsData.technology}
+                category="Technology"
                 Colors={darkMode ? ColorsDarkMode : ColorsWhiteMode}
               />
             }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDarkMode } from "./DarkModeContext";
 
-const CardsSkeleton = ({ Colors }) => {
+const CardsSkeleton = () => {
   const { darkMode } = useDarkMode();
 
   const [CardsSkeleton, setCardsSkeleton] = useState(true);

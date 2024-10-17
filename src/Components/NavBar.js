@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useDarkMode } from "./DarkModeContext";
 import "../css/navbar.css";
 import Logo from "../Images/Logo.png";
-import LogoDark from "../Images/LogoDark.png";
 
 const NavBar = ({ Colors }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,11 +62,7 @@ const NavBar = ({ Colors }) => {
               to="/"
               className={`${darkMode ? "text-white" : "text-gray-600"} `}
             >
-              {darkMode ? (
-                <img src={LogoDark} alt="Logo" className="w-[55px]" />
-              ) : (
-                <img src={Logo} alt="Logo" className="w-[55px]" />
-              )}
+              <img src={Logo} alt="Logo" className="w-[80px]" />
             </Link>
           </motion.div>
           <motion.div

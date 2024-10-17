@@ -1,6 +1,6 @@
 {
-  "name": "Find News",
-  "short_name": "Find News",
+  "name": "MyWebSite",
+  "short_name": "MySite",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
