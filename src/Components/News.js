@@ -117,7 +117,7 @@ const News = (props) => {
                         detailurl={e.url}
                         author={e.author ? e.author.slice(0, 20) : ""}
                         date={e.publishedAt}
-                        source={e.source.name}
+                        source={e.source.name ? e.source.name.slice(0, 25) : ""}
                         Colors={Colors}
                       />
                     </motion.div>
